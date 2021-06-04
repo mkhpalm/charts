@@ -9,3 +9,6 @@ icon: https://raw.githubusercontent.com/coreos/etcd/master/logos/etcd-horizontal
 sources:
 - https://github.com/coreos/etcd
 - https://github.com/helm/charts/tree/master/incubator/etcd
+maintainers:
+- name: Mike Palmer
+  email: mkhpalm@gmail.com
