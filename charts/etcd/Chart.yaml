@@ -10,5 +10,5 @@ sources:
 - https://github.com/coreos/etcd
 - https://github.com/helm/charts/tree/master/incubator/etcd
 maintainers:
-- name: Mike Palmer
+- name: mkhpalm
   email: mkhpalm@gmail.com
