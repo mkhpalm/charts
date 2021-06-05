@@ -7,10 +7,12 @@ peerPort: 2380
 clientPort: 2379
 component: "etcd"
 replicas: 3
+
 image:
   repository: "quay.io/coreos/etcd"
   tag: "v3.4.15"
   pullPolicy: "IfNotPresent"
+
 resources: {}
 # We usually recommend not to specify default resources and to leave this as a conscious
 # choice for the user. This also increases chances charts run on environments with little
