@@ -1,5 +1,6 @@
 ---
 # Artifact Hub repository metadata file
+repositoryID: 91dc930f-1810-4e7f-891b-ffe3c51da540
 owners: # (optional, used to claim repository ownership)
   - name: mkhpalm
     email: mkhpalm@gmail.com
