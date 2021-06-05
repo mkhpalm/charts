@@ -5,6 +5,7 @@ Helm chart for coreos etcd 3.4+
 
 This is a chart based on the incubator chart from helm/charts. Dusted off to function with etcd 3.4 and updated for helm3. It also
 adds support for:
+
 * Restore from snapshot
 * CronJob to make snapshots
 * Prometheus operator support
