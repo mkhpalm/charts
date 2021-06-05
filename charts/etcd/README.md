@@ -10,6 +10,13 @@ adds support for:
 * CronJob to make snapshots
 * Prometheus operator support
 
+## Helm Repository
+
+```bash
+$ helm repo add mkhpalm https://mkhpalm.github.io/helm-charts/
+$ helm repo update
+```
+
 ## Configuration
 
 The following table lists the configurable parameters of the etcd chart and their default values.
@@ -29,7 +36,7 @@ The following table lists the configurable parameters of the etcd chart and thei
 | extraEnv | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/coreos/etcd"` |  |
-| image.tag | string | `"v3.4.15"` |  |
+| image.tag | string | `"v3.4.16"` |  |
 | memoryMode | bool | `false` |  |
 | nodeSelector | object | `{}` |  |
 | peerPort | int | `2380` |  |
