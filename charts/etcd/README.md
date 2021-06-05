@@ -13,6 +13,8 @@ adds support for:
 
 The following table lists the configurable parameters of the etcd chart and their default values.
 
+## Values
+
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
