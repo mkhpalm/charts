@@ -70,7 +70,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml path/to/etcd
+$ helm install --name my-release -f values.yaml mkhpalm/etcd
 ```
 > **Tip**: You can use the default [values.yaml](values.yaml)
 # To install the chart with secure transport enabled
@@ -81,7 +81,7 @@ $ kubectl create secret generic etcd-client-certs --from-file=ca.crt=path/to/ca.
 ```
 Deploy the chart with the following flags enabled:
 ```bash
-$ helm install --name my-release --set auth.client.secureTransport=true --set auth.client.enableAuthentication=true --set auth.client.existingSecret=etcd-client-certs --set auth.peer.useAutoTLS=true path/to/etcd
+$ helm install --name my-release --set auth.client.secureTransport=true --set auth.client.enableAuthentication=true --set auth.client.existingSecret=etcd-client-certs --set auth.peer.useAutoTLS=true mkhpalm/etcd
 ```
 Reference to how to generate the needed certificate:
 > Ref: https://coreos.com/os/docs/latest/generate-self-signed-certificates.html
