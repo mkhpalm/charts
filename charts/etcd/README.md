@@ -13,41 +13,54 @@ adds support for:
 
 The following table lists the configurable parameters of the etcd chart and their default values.
 
-| Parameter                           | Description                          | Default                                            |
-| ----------------------------------- | ------------------------------------ | -------------------------------------------------- |
-| `image.repository`                  | Container image repository           | `quay.io/coreos/etcd`                              |
-| `image.tag`                         | Container image tag                  | `v3.4.15`                                          |
-| `image.pullPolicy`                  | Container pull policy                | `IfNotPresent`                                     |
-| `replicas`                          | k8s statefulset replicas             | `3`                                                |
-| `resources`                         | container required resources         | `{}`                                               |
-| `clientPort`                        | k8s service port                     | `2379`                                             |
-| `peerPorts`                         | Container listening port             | `2380`                                             |
-| `storage`                           | Persistent volume size               | `1Gi`                                              |
-| `storageClass`                      | Persistent volume storage class      | `anything`                                         |
-| `affinity`                          | affinity settings for pod assignment | `{}`                                               |
-| `nodeSelector`                      | Node labels for pod assignment       | `{}`                                               |
-| `tolerations`                       | Toleration labels for pod assignment | `[]`                                               |
-| `extraEnv`                          | Optional environment variables       | `[]`                                               |
-| `memoryMode`                        | Using memory as backend storage      | `false`                                            |
-| `auth.client.enableAuthentication`  | Enables host authentication using TLS certificates. Existing secret is required.    | `false` |
-| `auth.client.secureTransport`       | Enables encryption of client communication using TLS certificates | `false` |
-| `auth.peer.useAutoTLS`              | Automatically create the TLS certificates | `false` |
-| `auth.peer.secureTransport`         | Enables encryption peer communication using TLS certificates **(At the moment works only with Auto TLS)** | `false` |
-| `auth.peer.enableAuthentication`     | Enables host authentication using TLS certificates. Existing secret required | `false` |
-| `serviceAccount.create`              | Create serviceaccount | `true` |
-| `podMonitor.enabled`                 | Enable podMonitor | `false` |
-| `prometheusRules.enabled`            | Enable prometheusRules | `false` |
-| `snapshot.restore.enabled`           | Enabled restore from snapshot | false |
-| `snapshot.restore.claimName`         | PVC claim name where snapshot is stored | `""` |
-| `snapshot.restore.fileName`          | Snapshot filename to restore from on PVC | `""` |
-| `snapshot.backup.enabled`            | Enable CronJob to make snapshots and save to PVC | `""` |
-| `snapshot.backup.schedule`           | Snapshot schedule | `0/30 * * * *` |
-| `snapshot.backup.historyLimit`        | Snapshot job history | `1` |
-| `snapshot.backup.snapshotHistoryLimit` | Snapashot file history limit | `1` |
-| `snapshot.backup.claimName`          | Existing claim name name | `""` |
-| `snapshot.backup.size`               | Create pvc with size | `10Gi` |
-| `snapshot.backup.storageClassName`   | Create pvc storageclass | `default` |
-| `snapshot.backup.resources`          | Snapshot CronJob resources | `{}` |
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| auth.client.enableAuthentication | bool | `false` |  |
+| auth.client.secureTransport | bool | `false` |  |
+| auth.peer.enableAuthentication | bool | `false` |  |
+| auth.peer.secureTransport | bool | `false` |  |
+| auth.peer.useAutoTLS | bool | `false` |  |
+| clientPort | int | `2379` |  |
+| component | string | `"etcd"` |  |
+| extraEnv | list | `[]` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"quay.io/coreos/etcd"` |  |
+| image.tag | string | `"v3.4.15"` |  |
+| memoryMode | bool | `false` |  |
+| nodeSelector | object | `{}` |  |
+| peerPort | int | `2380` |  |
+| persistentVolume.enabled | bool | `false` |  |
+| podAnnotations | object | `{}` |  |
+| podMonitor.enabled | bool | `false` |  |
+| podMonitor.interval | string | `"30s"` |  |
+| podMonitor.metricRelabelings | list | `[]` |  |
+| podMonitor.relabelings | list | `[]` |  |
+| podMonitor.scheme | string | `"http"` |  |
+| podMonitor.scrapeTimeout | string | `"30s"` |  |
+| podMonitor.tlsConfig | object | `{}` |  |
+| podSecurityContext.fsGroup | int | `1001` |  |
+| prometheusRules.enabled | bool | `false` |  |
+| prometheusRules.rules | list | `[]` |  |
+| replicas | int | `3` |  |
+| resources | object | `{}` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
+| securityContext.runAsUser | int | `1001` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| snapshot.backup.claimName | string | `nil` |  |
+| snapshot.backup.enabled | bool | `false` |  |
+| snapshot.backup.historyLimit | int | `1` |  |
+| snapshot.backup.resources | object | `{}` |  |
+| snapshot.backup.schedule | string | `"*/30 * * * *"` |  |
+| snapshot.backup.size | string | `"10Gi"` |  |
+| snapshot.backup.snapshotHistoryLimit | int | `1` |  |
+| snapshot.backup.storageClassName | string | `"default"` |  |
+| snapshot.restore.claimName | string | `nil` |  |
+| snapshot.restore.enabled | bool | `false` |  |
+| snapshot.restore.fileName | string | `nil` |  |
+| tolerations | list | `[]` |  |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
