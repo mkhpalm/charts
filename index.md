@@ -7,6 +7,6 @@ This repository hosts mkhpalm's [Helm](https://helm.sh) charts. Chart documentat
 ## Add Helm repository
 
 ```bash
-helm repo add renovate https://mkhpalm.github.io/helm-charts
+helm repo add mkhpalm https://mkhpalm.github.io/helm-charts
 helm repo update
 ```
