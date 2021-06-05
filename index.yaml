@@ -1,0 +1,22 @@
+apiVersion: v1
+entries:
+  etcd:
+  - apiVersion: v2
+    appVersion: v3.4.15
+    created: "2021-06-05T01:33:54.419510221Z"
+    description: Distributed reliable key-value store for the most critical data of
+      a distributed system.
+    digest: 22fc3773cbfdd25d0368259b734a6f7a02d53a7c8e3a39592318887b93a2866b
+    home: https://github.com/coreos/etcd
+    icon: https://raw.githubusercontent.com/coreos/etcd/master/logos/etcd-horizontal-color.png
+    maintainers:
+    - email: mkhpalm@gmail.com
+      name: mkhpalm
+    name: etcd
+    sources:
+    - https://github.com/coreos/etcd
+    - https://github.com/helm/charts/tree/master/incubator/etcd
+    urls:
+    - https://github.com/mkhpalm/helm-charts/releases/download/etcd-0.1.2/etcd-0.1.2.tgz
+    version: 0.1.2
+generated: "2021-06-05T01:33:54.419524321Z"
