@@ -6,8 +6,6 @@ on:
       - main
     paths:
       - 'charts/**'
-      
-  workflow_dispatch:
 
 jobs:
   release:
@@ -26,10 +24,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: 3.4.0 #mkhpalm: datasource=github-releases depName=helm/helm
-
-      #- name: Add external Helm repos
-      #  run: helm repo add bitnami https://charts.bitnami.com/bitnami
+          version: 3.4.0
 
       - name: Build chart dependencies
         run: |
@@ -40,7 +35,5 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
-        with:
-          version: v1.1.1 #mkhpalm: datasource=github-releases depName=helm/chart-releaser
         env:
-          CR_TOKEN: '${{ secrets.CR_TOKEN }}'
+          CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
