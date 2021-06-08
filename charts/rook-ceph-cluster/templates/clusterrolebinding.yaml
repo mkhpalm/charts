@@ -1,0 +1,30 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: rook-ceph-osd-{{ .Release.Name }}
+  labels:
+    {{- include "rook-ceph-cluster.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: rook-ceph-osd-{{ .Release.Name }}
+subjects:
+- kind: ServiceAccount
+  name: rook-ceph-osd
+  namespace: {{ .Release.Namespace }}
+---
+# Allow the ceph mgr to access cluster-wide resources necessary for the mgr modules
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: rook-ceph-mgr-cluster-{{ .Release.Name }}
+  labels:
+    {{- include "rook-ceph-cluster.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: rook-ceph-mgr-cluster-{{ .Release.Name }}
+subjects:
+- kind: ServiceAccount
+  name: rook-ceph-mgr
+  namespace: {{ .Release.Namespace }}

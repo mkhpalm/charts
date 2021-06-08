@@ -1,0 +1,39 @@
+# Default values for rook-ceph-cluster.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+operator:
+  # Change "rook-ceph" to match the rook-ceph operator namespace
+  namespace: rook-ceph
+
+# https://rook.io/docs/rook/v1.5/ceph-cluster-crd.html
+spec:
+  cephVersion:
+    image: ceph/ceph:v15.2.11
+  dataDirHostPath: /var/lib/rook
+  mon:
+    count: 3
+    allowMultiplePerNode: false
+  storage:
+    useAllNodes: true
+    useAllDevices: true
+
+serviceMonitor:
+  enabled: false
+  interval: ""
+  metricRelabelings: []
+  relabelings: []
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - chart-example.local
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
