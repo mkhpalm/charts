@@ -41,7 +41,7 @@ You can define all configurations using `spec` just like the standalone CephClus
 | serviceMonitor.interval | string | `""` |  |
 | serviceMonitor.metricRelabelings | list | `[]` |  |
 | serviceMonitor.relabelings | list | `[]` |  |
-| spec.cephVersion.image | string | `"ceph/ceph:v15.2.11"` |  |
+| spec.cephVersion.image | string | `"ceph/ceph:v15.2.13"` |  |
 | spec.dataDirHostPath | string | `"/var/lib/rook"` |  |
 | spec.mon.allowMultiplePerNode | bool | `false` |  |
 | spec.mon.count | int | `3` |  |
