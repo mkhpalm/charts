@@ -1,10 +1,8 @@
-# helm-charts
-
-mkhpalm's helm chart repository
+# mkhpalm's helm chart repository
 
 ### Overview
 
-These are a variety of helm charts I made for one purpose or another
+These are a variety of helm charts I've made for one reason or another
 
 ### Documentation
 
