@@ -26,3 +26,24 @@ What this chart does is manifests the cluster custom resource and adds a few thi
 ### Configuration Options
 
 You can define all configurations using `spec` just like the standalone CephCluster custom resource. If you are using multiple namespaces make sure to define `operator.namespace` so this chart knows how to map roles for rook-ceph-operator to access it.
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| ingress.annotations | object | `{}` |  |
+| ingress.enabled | bool | `false` |  |
+| ingress.hosts[0] | string | `"chart-example.local"` |  |
+| ingress.path | string | `"/"` |  |
+| ingress.tls | list | `[]` |  |
+| operator.namespace | string | `"rook-ceph"` |  |
+| serviceMonitor.enabled | bool | `false` |  |
+| serviceMonitor.interval | string | `""` |  |
+| serviceMonitor.metricRelabelings | list | `[]` |  |
+| serviceMonitor.relabelings | list | `[]` |  |
+| spec.cephVersion.image | string | `"ceph/ceph:v15.2.11"` |  |
+| spec.dataDirHostPath | string | `"/var/lib/rook"` |  |
+| spec.mon.allowMultiplePerNode | bool | `false` |  |
+| spec.mon.count | int | `3` |  |
+| spec.storage.useAllDevices | bool | `true` |  |
+| spec.storage.useAllNodes | bool | `true` |  |
