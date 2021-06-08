@@ -6,3 +6,9 @@ version: 1.5.0
 icon: https://rook.io/images/rook-logo.svg
 sources:
 - https://github.com/rook/rook
+maintainers:
+- name: mkhpalm
+  email: mkhpalm@gmail.com
+keywords:
+- rook
+- ceph
