@@ -1,0 +1,10 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: {{ template "rook-ceph-cluster.fullname" . }}
+  labels:
+    {{- include "rook-ceph-cluster.labels" . | nindent 4 }}
+{{- with .Values.spec }}
+spec:
+  {{- toYaml . | nindent 2 }}
+{{- end }}
