@@ -1,0 +1,23 @@
+operator:
+  namespace: rook-ceph
+
+spec:
+  cephVersion:
+    image: ceph/ceph:v15.2.13
+  mon:
+    allowMultiplePerNode: true
+  storage:
+    useAllNodes: false
+    useAllDevices: false
+
+serviceMonitor:
+  enabled: true
+
+ingress:
+  enabled: true
+  hosts:
+    - test.local
+  tls:
+    - secretName: test-tls
+      hosts:
+        - test.local
