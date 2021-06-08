@@ -9,7 +9,7 @@ operator:
 # https://rook.io/docs/rook/v1.5/ceph-cluster-crd.html
 spec:
   cephVersion:
-    image: ceph/ceph:v15.2.11
+    image: ceph/ceph:v15.2.13
   dataDirHostPath: /var/lib/rook
   mon:
     count: 3
